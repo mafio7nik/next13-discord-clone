@@ -3,14 +3,9 @@ generator client {
 }
 
 datasource db {
-<<<<<<< HEAD
   provider = "postgresql"
   url = env("DATABASE_URL")
   relationMode = "prisma"
-=======
-  provider = "cockroachdb"
-  url      = env("DATABASE_URL")
->>>>>>> 4b653defd8b74c9eecb98540a25514e41df8946d
 }
 
 model Profile {
