@@ -3,17 +3,22 @@ generator client {
 }
 
 datasource db {
+<<<<<<< HEAD
   provider = "postgresql"
   url = env("DATABASE_URL")
   relationMode = "prisma"
+=======
+  provider = "cockroachdb"
+  url      = env("DATABASE_URL")
+>>>>>>> 4b653defd8b74c9eecb98540a25514e41df8946d
 }
 
 model Profile {
   id String @id @default(uuid())
   userId String @unique
   name String
-  imageUrl String @db.Text
-  email String @db.Text
+  imageUrl String 
+  email String 
 
   servers Server[]
   members Member[]
@@ -26,7 +31,7 @@ model Profile {
 model Server {
   id String @id @default(uuid())
   name String
-  imageUrl String @db.Text
+  imageUrl String 
   inviteCode String @unique
 
   profileId String
@@ -98,9 +103,9 @@ model Channel {
 
 model Message {
   id String @id @default(uuid())
-  content String @db.Text
+  content String 
 
-  fileUrl String? @db.Text
+  fileUrl String? 
 
   memberId String
   member Member @relation(fields: [memberId], references: [id], onDelete: Cascade)
@@ -135,8 +140,8 @@ model Conversation {
 
 model DirectMessage {
   id String @id @default(uuid())
-  content String @db.Text
-  fileUrl String? @db.Text
+  content String 
+  fileUrl String? 
 
   memberId String
   member Member @relation(fields: [memberId], references: [id], onDelete: Cascade)
