@@ -3,6 +3,8 @@ import { NextResponse } from "next/server";
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 
+export const runtime = 'edge';
+
 export async function PATCH(
   req: Request,
   { params }: { params: { serverId: string } }
