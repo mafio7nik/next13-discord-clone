@@ -25,10 +25,7 @@
     "paths": {
       "@/*": [
         "./*"
-      ],
-      "crypto": [
-        "node_modules/crypto-js"
-      ],
+      ]
     },
     "forceConsistentCasingInFileNames": true
   },
