@@ -4,8 +4,6 @@ import { DirectMessage } from "@prisma/client";
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 
-export const runtime = 'edge';
-
 const MESSAGES_BATCH = 10;
 
 export async function GET(
