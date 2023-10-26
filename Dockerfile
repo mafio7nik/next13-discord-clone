@@ -4,8 +4,8 @@ WORKDIR /app
 
 COPY package.json package-lock.json ./
 COPY next.config.js ./
-
-COPY node_modules ./node_modules
+RUN npm install 
+#COPY node_modules ./node_modules
 RUN npm install -D @swc/cli @swc/core
 #RUN set http_proxy= ; set https_proxy= ; npm config rm https-proxy; npm config set registry "https://registry.npmjs.org"; npm install
 
