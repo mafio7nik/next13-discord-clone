@@ -22,15 +22,15 @@ jobs:
     - name: Log in to registry
       uses: docker/login-action@v2
       with:
-        registry: https://mcr.microsoft.com/
-        username: ${{ secrets.AzureAppService_ContainerUsername_b4966f6fa3c8486ea1a06104bd0d8c43 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_67f371be59a743db9361b33103dc8450 }}
+        registry: https://index.docker.io/v1/
+        username: ${{ secrets.AzureAppService_ContainerUsername_de6d646e374e4bd7845fbd2345f37d13 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_cb6b407b2e95495e92ed91bb55e57b2a }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_b4966f6fa3c8486ea1a06104bd0d8c43 }}/next13-discord-clone-web:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_de6d646e374e4bd7845fbd2345f37d13 }}/next13-discord-clone-web:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'mafio6nik'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_c8bf1e24e1ea4229893342e1d03dedda }}
-        images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_b4966f6fa3c8486ea1a06104bd0d8c43 }}/next13-discord-clone-web:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_55edc4c2d945436a97c375b2296d5899 }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_de6d646e374e4bd7845fbd2345f37d13 }}/next13-discord-clone-web:${{ github.sha }}'
